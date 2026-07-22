@@ -1,0 +1,328 @@
+/* ==========================================================================
+   OOP OVERVIEW PAGE
+   (Definition / Why OOP / What It Is / Main Idea / Advantages / Disadvantages)
+
+   Assumes this loads AFTER css/index.css, so all design tokens (colors,
+   fonts, radii, transitions) and the site reset are already in place.
+   Named intro-theory.css as a best guess for where this content lives —
+   rename the file/link if it actually belongs elsewhere.
+
+   LAYOUT CHOICE: this page intentionally skips the site's centered,
+   1180px .container. Each section runs edge-to-edge with modest side
+   padding instead. Paragraph text still gets a readable max-width so
+   prose doesn't stretch into unreadably long lines, but nothing is
+   centered into a narrow column — that's what was making it feel
+   margin-heavy.
+
+   HEADS UP: the "What exactly is OOP" body in the HTML you sent nests a
+   <ul> and a second <p> inside an outer <p>. Browsers auto-close the
+   outer <p> the instant they hit that <ul>, so the real DOM ends up as
+   three siblings (p, ul, p) no matter how it's indented in the source.
+   The selectors below target ".what-body p" / ".what-body ul" generically
+   so the styling holds up correctly either way — but it's worth
+   flattening that markup when you get a chance, since relying on
+   auto-correction is fragile.
+   ========================================================================== */
+
+main {
+  counter-reset: spec-section;
+}
+
+/* ---------- Shared section shell — full-bleed, alternating tint ---------- */
+.oop-definition,
+.oop-creation-reason,
+.oop-what-is,
+.oop-main-idea,
+.oop-advantages,
+.oop-disadvantages {
+  padding: 72px 56px;
+}
+
+.oop-definition,
+.oop-what-is,
+.oop-advantages {
+  background-color: var(--color-bg);
+}
+
+.oop-creation-reason,
+.oop-main-idea,
+.oop-disadvantages {
+  background-color: var(--color-bg-alt);
+}
+
+/* ---------- Shared header bar: [ 01 ] LABEL ────────────────── ---------- */
+.oop-definition-header,
+.creation-header,
+.what-header,
+.main-idea-header,
+.advantages-header,
+.disadvantages-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  max-width: 900px;
+  margin-bottom: 28px;
+}
+
+.advantages-header,
+.disadvantages-header {
+  max-width: 1500px;
+}
+
+.oop-definition-header::before,
+.creation-header::before,
+.what-header::before,
+.main-idea-header::before,
+.advantages-header::before,
+.disadvantages-header::before {
+  counter-increment: spec-section;
+  content: counter(spec-section, decimal-leading-zero);
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-signal);
+  border: 1px solid var(--color-signal);
+  border-radius: 6px;
+  padding: 4px 9px;
+}
+
+.oop-definition-header span,
+.creation-header span,
+.what-header span,
+.main-idea-header span,
+.advantages-header span,
+.disadvantages-header span {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.01em;
+  color: var(--color-ink);
+  text-transform: uppercase;
+}
+
+.oop-definition-header::after,
+.creation-header::after,
+.what-header::after,
+.main-idea-header::after,
+.advantages-header::after,
+.disadvantages-header::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-border);
+}
+
+/* ---------- Prose (Definition / What Is / Main Idea) ---------- */
+.oop-definition-body p,
+.what-body p,
+.main-idea-body p {
+  max-width: 1fr;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-slate);
+  margin-bottom: 14px;
+}
+
+.oop-definition-body p:last-child,
+.what-body p:last-child,
+.main-idea-body p:last-child {
+  margin-bottom: 0;
+}
+
+.main-idea-body p strong {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+/* ---------- "What exactly is OOP" data / functions list ---------- */
+.what-body {
+  max-width: 900px;
+}
+
+.what-body ul {
+  list-style: none;
+  margin: 6px 0 14px;
+  padding: 0;
+}
+
+.what-body li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 8px;
+  font-size: 1.02rem;
+  color: var(--color-slate);
+}
+
+.what-body li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-signal);
+}
+
+/* ---------- "Why was OOP created" — bare text + problem chips ---------- */
+.creation-body {
+  max-width: 900px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-slate);
+}
+
+.creation-body > p {
+  margin: 18px 0 0;
+}
+
+.creation-body ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  margin: 22px 0;
+  padding: 0;
+}
+
+.problem-item {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  background-color: var(--color-rose-tint);
+  color: var(--color-rose);
+  border-radius: 999px;
+}
+
+/* ---------- Main Idea — callout treatment ---------- */
+.oop-main-idea {
+  border-left: 4px solid var(--color-signal);
+}
+
+.main-idea-body p {
+  font-size: 1fr;
+}
+
+/* ---------- Advantages / Disadvantages ---------- */
+.oop-advantages {
+  border-top: 3px solid var(--color-teal);
+}
+
+.oop-disadvantages {
+  border-top: 3px solid var(--color-rose);
+}
+
+.advantages-wrapper,
+.disadvantages-body {
+  max-width: 1500px;
+}
+
+.advantages-list ul,
+.disadvantages-body ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.disadvantages-body ul {
+  margin-bottom: 22px;
+}
+
+.advantages-list li,
+.disadvantages-body li {
+  position: relative;
+  padding-left: 32px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-ink);
+}
+
+.advantages-list li::before,
+.disadvantages-body li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 11px 11px;
+}
+
+.advantages-list li::before {
+  background-color: var(--color-teal);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+}
+
+.disadvantages-body li::before {
+  background-color: var(--color-rose);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'/%3E%3Cline x1='6' y1='6' x2='18' y2='18'/%3E%3C/svg%3E");
+}
+
+.disadvantages-body > p {
+  max-width: 900px;
+  font-style: italic;
+  color: var(--color-slate);
+  border-top: 1px solid var(--color-border);
+  padding-top: 16px;
+}
+
+p{
+    max-width: 1fr;;
+}
+
+/* "extra-empty" div preserved from the original markup — a free JS hook
+   for later. It's empty, so it already takes up no visible space; no
+   rule needed unless you give it content. */
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 900px) {
+  .oop-definition,
+  .oop-creation-reason,
+  .oop-what-is,
+  .oop-main-idea,
+  .oop-advantages,
+  .oop-disadvantages {
+    padding: 56px 32px;
+  }
+
+  .advantages-list ul,
+  .disadvantages-body ul {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 560px) {
+  .oop-definition,
+  .oop-creation-reason,
+  .oop-what-is,
+  .oop-main-idea,
+  .oop-advantages,
+  .oop-disadvantages {
+    padding: 44px 20px;
+  }
+
+  .oop-definition-header span,
+  .creation-header span,
+  .what-header span,
+  .main-idea-header span,
+  .advantages-header span,
+  .disadvantages-header span {
+    font-size: 1.05rem;
+  }
+
+  .main-idea-body p {
+    font-size: 1.05rem;
+  }
+}

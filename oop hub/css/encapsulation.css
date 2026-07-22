@@ -1,0 +1,84 @@
+    /* ==========================================================================
+   ENCAPSULATION — page-specific visuals
+   The "Class (public methods + private data) → outside code" diagram.
+   ========================================================================== */
+.enc-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  margin-bottom: 16px;
+}
+
+.enc-class-box {
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-signal);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  min-width: 200px;
+}
+
+.enc-class-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-signal);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.enc-member {
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  text-align: center;
+  color: var(--color-ink);
+}
+
+.enc-member + .enc-member { margin-top: 8px; }
+
+.enc-member small { display: block; color: var(--color-slate); font-size: 0.75rem; }
+
+.enc-member--public {
+  background-color: var(--color-teal-tint);
+  border: 1px solid var(--color-teal);
+}
+
+.enc-member--private {
+  background-color: var(--color-rose-tint);
+  border: 1px solid var(--color-rose);
+}
+
+.enc-arrows {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.enc-arrow--allowed { color: var(--color-teal); }
+.enc-arrow--blocked { color: var(--color-rose); }
+
+.enc-outside-box {
+  background-color: var(--color-amber-tint);
+  border: 1px solid var(--color-amber);
+  border-radius: var(--radius-sm);
+  padding: 14px 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+@media (max-width: 560px) {
+  .enc-diagram { flex-direction: column; }
+  .enc-arrows { flex-direction: row; }
+}

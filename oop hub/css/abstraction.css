@@ -1,0 +1,47 @@
+/* ==========================================================================
+   ABSTRACTION — page-specific visuals
+   A two-layer diagram: what the caller sees vs. what's hidden underneath.
+   ========================================================================== */
+.abs-diagram {
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.abs-layer {
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+}
+
+.abs-layer-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.abs-layer--visible {
+  background-color: var(--color-signal-tint);
+  border: 1.5px solid var(--color-signal);
+}
+.abs-layer--visible .abs-layer-label { color: var(--color-signal); }
+.abs-layer--visible p { color: var(--color-ink); font-family: var(--font-mono); font-size: 0.9rem; }
+
+.abs-divider {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-slate);
+  padding: 10px 0;
+}
+
+.abs-layer--hidden {
+  background-color: var(--color-surface);
+  border: 1.5px dashed var(--color-border);
+}
+.abs-layer--hidden .abs-layer-label { color: var(--color-slate); }
+.abs-layer--hidden p { color: var(--color-slate); font-family: var(--font-mono); font-size: 0.85rem; opacity: 0.8; }

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <script>document.documentElement.classList.add('js');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OOP Mastery — Learn Object-Oriented Programming</title>
+  <meta name="description" content="A structured, example-driven guide to Object-Oriented Programming — clear theory, real examples, and hands-on practice for every core OOP concept.">
+
+  <!-- Fonts: Space Grotesk (display), IBM Plex Sans (body), IBM Plex Mono (code / labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/polymorphism.css">
+  <link rel="stylesheet" href="../css/sidebar.css">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- ==========================================================================
+       HEADER — brand (left) · 5-item primary nav (center) · theme toggle (right)
+       ========================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner container">
+
+      <a href="index.html" class="brand" id="site-logo" aria-label="OOP Mastery — home">
+        <span class="logo-badge">
+          <span class="logo-mark" aria-hidden="true">{<i class="logo-dot"></i>}</span>
+        </span>
+        <span class="brand-name">OOP Mastery</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="../index.html" class="nav-link" aria-current="page">Home</a></li>
+          <li><a href="explore.html" class="nav-link">Topics</a></li>
+          <li><a href="practice.html" class="nav-link">Examples</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark theme" aria-pressed="false">
+          <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  
+<main>
+  <div class="docs-shell">
+ 
+    <div class="sidebar"></div>
+ 
+    <div class="content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span class="crumb-sep">/</span>
+        <a href="#">Topics</a><span class="crumb-sep">/</span>
+        <span aria-current="page">Polymorphism</span>
+      </nav>
+ 
+      <span class="page-badge">OOP Concept</span>
+      <h1 class="page-title">Polymorphism</h1>
+      <p class="page-intro">
+        Polymorphism — literally "many forms" — is the ability for different
+        classes to respond to the same method call in their own way. Code
+        written against one shared interface can work with any class that
+        implements it, without knowing exactly which one it's dealing with.
+      </p>
+ 
+      <div class="callout">
+        <span class="callout-icon">💡</span>
+        <p>C++ has two kinds: compile-time polymorphism (function/operator
+          overloading) and runtime polymorphism (virtual functions). This page
+          focuses on runtime polymorphism, since it's the one built directly on
+          inheritance.</p>
+        </div>
+ 
+      <section class="box learn-box" aria-label="What you'll learn">
+        <h2 class="box-title">What You'll Learn Here</h2>
+        <ul class="check-list">
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>How a base-class pointer can call different overridden methods</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>The role <code>virtual</code> and <code>override</code> play in making this work</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Why polymorphism depends on inheritance</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>How to loop over different objects through one shared type</li>
+        </ul>
+      </section>
+ 
+      <section class="content-section">
+        <h2>Why Polymorphism?</h2>
+        <ul class="check-list">
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>One function call can behave differently depending on the object</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>New classes can be added without changing the code that uses them</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Collections of related objects can be handled through one shared type</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Keeps calling code simple even as the number of classes grows</li>
+        </ul>
+      </section>
+ 
+      <section class="content-section">
+        <h2>How It Works</h2>
+        <p>
+          A base class marks a method <code>virtual</code>. Every derived class
+          can then <code>override</code> it with its own version. Calling that
+          method through a base-class pointer or reference always runs the
+          derived class's version — decided at runtime, not compile time.
+        </p>
+        <div class="poly-diagram">
+          <div class="poly-base">Shape <small>virtual draw()</small></div>
+          <div class="poly-forms">
+            <div class="poly-form poly-form--a">Circle <small>draws a circle</small></div>
+            <div class="poly-form poly-form--b">Square <small>draws a square</small></div>
+            <div class="poly-form poly-form--c">Triangle <small>draws a triangle</small></div>
+          </div>
+        </div>
+      </section>
+ 
+      <section class="content-section">
+        <h2>Syntax</h2>
+        <div class="code-panel">
+          <div class="code-panel-header">
+            <span class="code-panel-tag">syntax</span>
+            <span class="code-panel-filename">polymorphism.cpp</span>
+          </div>
+          <div class="code-panel-body"><pre class="code-panel-code"><span class="kw">class</span> <span class="ty">Base</span> {
+<span class="kw">public</span>:
+    <span class="kw">virtual</span> <span class="kw">void</span> <span class="fn">action</span>() { <span class="cm">/* default behavior */</span> }
+};
+ 
+<span class="kw">class</span> <span class="ty">Derived</span> : <span class="kw">public</span> <span class="ty">Base</span> {
+<span class="kw">public</span>:
+    <span class="kw">void</span> <span class="fn">action</span>() <span class="kw">override</span> { <span class="cm">/* its own behavior */</span> }
+};
+ 
+<span class="ty">Base</span>* obj = <span class="kw">new</span> <span class="ty">Derived</span>();
+obj-&gt;action();                <span class="cm">// runs Derived's version</span></pre></div>
+        </div>
+      </section>
+ 
+      <section class="content-section">
+        <h2>Code Example (C++)</h2>
+        <div class="code-panel">
+          <div class="code-panel-header">
+            <span class="code-panel-tag">example</span>
+            <span class="code-panel-filename">shapes.cpp</span>
+          </div>
+          <div class="code-panel-body"><pre class="code-panel-code"><span class="kw">#include</span> &lt;iostream&gt;
+<span class="kw">using namespace</span> std;
+ 
+<span class="kw">class</span> <span class="ty">Shape</span> {
+<span class="kw">public</span>:
+    <span class="kw">virtual</span> <span class="kw">void</span> <span class="fn">draw</span>() { cout &lt;&lt; <span class="str">"Drawing a shape"</span> &lt;&lt; endl; }
+};
+ 
+<span class="kw">class</span> <span class="ty">Circle</span> : <span class="kw">public</span> <span class="ty">Shape</span> {
+<span class="kw">public</span>:
+    <span class="kw">void</span> <span class="fn">draw</span>() <span class="kw">override</span> { cout &lt;&lt; <span class="str">"Drawing a circle"</span> &lt;&lt; endl; }
+};
+ 
+<span class="kw">class</span> <span class="ty">Square</span> : <span class="kw">public</span> <span class="ty">Shape</span> {
+<span class="kw">public</span>:
+    <span class="kw">void</span> <span class="fn">draw</span>() <span class="kw">override</span> { cout &lt;&lt; <span class="str">"Drawing a square"</span> &lt;&lt; endl; }
+};
+ 
+<span class="ty">int</span> <span class="fn">main</span>() {
+    <span class="ty">Shape</span>* shapes[] = { <span class="kw">new</span> <span class="ty">Circle</span>(), <span class="kw">new</span> <span class="ty">Square</span>() };
+ 
+    <span class="kw">for</span> (<span class="ty">Shape</span>* s : shapes) {
+        s-&gt;draw();               <span class="cm">// same call, different result each time</span>
+    }
+    <span class="kw">return</span> 0;
+}</pre></div>
+        </div>
+        <div class="output-box">
+          <span class="output-label">Output</span>
+          <pre>Drawing a circle
+Drawing a square</pre>
+        </div>
+      </section>
+ 
+      <section class="box pros-box" aria-label="Pros of polymorphism">
+        <h2 class="box-title">Pros of Polymorphism</h2>
+        <ul class="check-list">
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Makes code flexible and easy to extend with new classes</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Simplifies code that has to work with many related types</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Supports dynamic, runtime-decided behavior</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Encourages designing around interfaces rather than concrete types</li>
+        </ul>
+      </section>
+ 
+      <section class="content-section">
+        <h2>Real-Life Analogy</h2>
+        <div class="analogy">
+          <span class="analogy-icon">🔘</span>
+          <p><strong>Think of one "speak" button.</strong> Press it on a dog and
+            it barks; press it on a cat and it meows. Same action requested,
+            different result depending on which object receives it.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+  
+ <footer class="site-footer" id="site-footer">
+    <div class="container footer-grid">
+ 
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="logo-badge">
+            <span class="logo-mark" aria-hidden="true">{<i class="logo-dot"></i>}</span>
+          </span>
+          <span class="brand-name">OOP Mastery</span>
+        </a>
+        <p class="footer-desc">A structured, example-driven guide to object-oriented programming — built to take you from your first class to your first real project.</p>
+      </div>
+ 
+      <div class="footer-col">
+        <h3 class="footer-heading">Quick links</h3>
+        <ul class="footer-links">
+          <li><a href="oop.html">OOP</a></li>
+          <li><a href="classes.html">Classes &amp; Objects</a></li>
+          <li><a href="encapsulation.html">Encapsulation</a></li>
+          <li><a href="inheritance.html" >Inheritance</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="polymoorphism.html">Polymorphism</a></li>
+          <li><a href="abstraction.html">Abstraction</a></li>
+        </ul>
+      </div>
+ 
+      <div class="footer-col">
+          <h3 class="footer-heading">Explore More</h3>
+        <ul class="footer-links">
+          <li><a href="explore.html">Playground c++</a></li>
+          <li><a href="practice.html">Practice Problems</a></li>
+        </ul>
+      </div>
+ 
+ 
+      <div class="footer-col">
+        <h3 class="footer-heading">About</h3>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+ 
+    </div>
+ 
+    <div class="footer-cheatsheet-band">
+      <div class="container footer-cheatsheet-inner">
+        <p class="footer-cheatsheet-label">Need a quick reference while you code?</p>
+        <a href="cheatsheet.html" class="footer-cheatsheet" id="footer-cheatsheet-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span>OOP Cheatsheet</span>
+          <svg class="footer-cheatsheet-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M13 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+ 
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 OOP Mastery. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/theme.js"></script>
+  <script src="../js/sidebar.js"></script>
+</body>
+</html>

@@ -1,0 +1,325 @@
+/* ==========================================================================
+   DOCS BASE — shared tokens, grid layout, and reusable components used by
+   every OOP topic page (Classes & Objects, Methods, Encapsulation,
+   Abstraction, Inheritance, Polymorphism).
+
+   Load order on each page:
+     1. docs-base.css   (this file — tokens + shared components)
+     2. sidebar.css     (left nav, injected by sidebar.js)
+     3. <topic>.css     (page-specific diagram / visuals only)
+   ========================================================================== */
+
+/* ---------- Tokens (matches the OOP Mastery site theme) ---------- */
+:root {
+  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-body: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  --color-bg: #F6F8FC;
+  --color-bg-alt: #EDF1FA;
+  --color-surface: #FFFFFF;
+  --color-ink: #10182B;
+  --color-slate: #5B6478;
+  --color-border: #DCE3F0;
+
+  --color-signal: #2E5CE6;
+  --color-signal-dark: #1E44B8;
+  --color-signal-tint: #E7EDFD;
+
+  --color-amber: #C9791C;
+  --color-amber-tint: #FBEEDD;
+  --color-rose: #C24559;
+  --color-rose-tint: #FBEAED;
+  --color-violet: #7C5CE6;
+  --color-violet-tint: #EEE9FC;
+  --color-teal: #0D9C8F;
+  --color-teal-tint: #DFF5F3;
+
+  --band-bg: #0E2A5C;
+  --band-text: #EDF2FF;
+  --band-text-muted: #A9BEEA;
+  --band-border: rgba(255, 255, 255, 0.14);
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --shadow-sm: 0 1px 3px rgba(14, 42, 92, 0.08);
+  --shadow-md: 0 8px 24px rgba(14, 42, 92, 0.10);
+
+  --transition-fast: 0.18s ease;
+}
+
+[data-theme="dark"] {
+  --color-bg: #0B1526;
+  --color-bg-alt: #101E36;
+  --color-surface: #14213D;
+  --color-ink: #E8EEFC;
+  --color-slate: #93A2C2;
+  --color-border: #253357;
+  --color-signal: #6690FF;
+  --color-signal-tint: rgba(102, 144, 255, 0.14);
+  --color-teal: #2DD4C4;
+  --color-teal-tint: rgba(45, 212, 196, 0.14);
+  --color-rose: #E2697D;
+  --color-rose-tint: rgba(226, 105, 125, 0.14);
+  --color-violet: #A78BFA;
+  --color-violet-tint: rgba(167, 139, 250, 0.16);
+  --color-amber: #E4A23C;
+  --color-amber-tint: rgba(228, 162, 60, 0.14);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, .3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, .36);
+}
+
+/* ---------- Scoped reset ---------- */
+.docs-shell, .docs-shell *, .docs-shell *::before, .docs-shell *::after {
+  box-sizing: border-box;
+}
+.docs-shell ul { list-style: none; margin: 0; padding: 0; }
+.docs-shell h1, .docs-shell h2, .docs-shell h3 {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.docs-shell p { color: var(--color-slate); margin: 0; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  line-height: 1.6;
+}
+
+/* ---------- Grid: sidebar + content ---------- */
+.docs-shell {
+  display: grid;
+  grid-template-columns: 248px minmax(0, 1fr);
+  align-items: start;
+  gap: 40px;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 40px 20px 96px;
+}
+
+.content { min-width: 0; }
+
+/* ---------- Breadcrumb ---------- */
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--color-slate);
+  margin-bottom: 22px;
+}
+.breadcrumb a { color: var(--color-slate); text-decoration: none; transition: color var(--transition-fast); }
+.breadcrumb a:hover { color: var(--color-signal); }
+.breadcrumb [aria-current="page"] { color: var(--color-ink); font-weight: 500; }
+.crumb-sep { opacity: 0.5; }
+
+/* ---------- Badge ---------- */
+.page-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-signal);
+  background-color: var(--color-signal-tint);
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+/* ---------- Title + intro ---------- */
+.page-title {
+  font-size: clamp(1.9rem, 1.5rem + 1.6vw, 2.6rem);
+  margin-bottom: 14px;
+}
+.page-intro {
+  font-size: 1.05rem;
+  max-width: 68ch;
+  margin-bottom: 28px;
+}
+
+/* ---------- Callout / tip box ---------- */
+.callout {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background-color: var(--color-signal-tint);
+  border-left: 3px solid var(--color-signal);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  margin-bottom: 36px;
+}
+.callout-icon { font-size: 1.2rem; line-height: 1; flex-shrink: 0; }
+.callout p { color: var(--color-ink); font-size: 0.95rem; margin: 0; }
+
+/* ---------- Boxed sections: "what you'll learn" + "pros" ---------- */
+.box {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 26px 28px;
+  margin-bottom: 36px;
+}
+.box-title { font-size: 1.05rem; margin-bottom: 16px; }
+.learn-box { border-top: 3px solid var(--color-violet); }
+.pros-box { border-top: 3px solid var(--color-teal); }
+
+/* ---------- Check list (learn-box, pros-box, "why" sections) ---------- */
+.check-list li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 7px 0;
+  font-size: 0.95rem;
+  color: var(--color-ink);
+}
+.check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--color-teal);
+  color: #fff;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.check-icon svg { width: 11px; height: 11px; }
+.learn-box .check-icon { background-color: var(--color-violet); }
+
+/* ---------- Content sections ---------- */
+.content-section { margin-bottom: 40px; }
+.content-section h2 { margin-bottom: 16px; }
+.content-section p { margin-bottom: 12px; font-size: 1rem; }
+.content-section p:last-child { margin-bottom: 0; }
+
+/* ---------- Code panel (dark surface, used for both syntax + examples) ---------- */
+.code-panel {
+  background-color: var(--band-bg);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 16px;
+  width: 800px;
+}
+
+.code-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--band-border);
+  width: 800px;
+}
+.code-panel-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--band-text-muted);
+  background-color: rgba(255, 255, 255, .08);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.code-panel-filename {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--band-text);
+}
+.code-panel-body { padding: 18px 20px; overflow-x: auto; }
+.code-panel-code {
+    
+  font-family: var(--font-mono);
+  font-size: 0.87rem;
+  color: var(--band-text);
+  white-space: pre;
+  line-height: 1.65;
+}
+.code-panel-code .cm { color: var(--band-text-muted); }   /* comment  */
+.code-panel-code .kw { color: #7FA8FF; }                  /* keyword  */
+.code-panel-code .ty { color: #6FD8CB; }                  /* type     */
+.code-panel-code .str { color: #E7B778; }                 /* string   */
+.code-panel-code .fn { color: #C7A6FF; }                  /* function */
+
+/* ---------- Output box ---------- */
+.output-box {
+  background-color: var(--color-signal-tint);
+  border-radius: var(--radius-sm);
+  padding: 14px 20px;
+  margin-bottom: 16px;
+}
+.output-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-signal);
+  margin-bottom: 6px;
+}
+.output-box p, .output-box pre {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+/* ---------- Real-life analogy ---------- */
+.analogy {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background-color: var(--color-amber-tint);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+}
+.analogy-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+.analogy p { color: var(--color-ink); font-size: 0.95rem; margin: 0; }
+.analogy strong { color: var(--color-ink); }
+
+/* ---------- Comparison grid (private/public, class/struct, ctor/dtor…) ---------- */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.compare-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 20px 22px;
+}
+.compare-card--a { border-top: 3px solid var(--color-signal); }
+.compare-card--b { border-top: 3px solid var(--color-violet); }
+.compare-card h3 { margin-bottom: 10px; font-size: 1rem; }
+.compare-card p { font-size: 0.9rem; margin-bottom: 8px; }
+.compare-card p:last-child { margin-bottom: 0; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .docs-shell { grid-template-columns: 1fr; }
+  .compare-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .docs-shell { padding: 28px 16px 64px; gap: 28px; }
+  .box, .analogy { padding: 20px; }
+}

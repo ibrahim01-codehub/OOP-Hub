@@ -1,0 +1,232 @@
+/* ==========================================================================
+   ABOUT PAGE
+   Loaded after css/index.css, so all design tokens, header, and footer
+   styles are already available here.
+   ========================================================================== */
+
+/* ---------- Hero / intro blurb ---------- */
+.about-hero {
+  padding: 72px 0 24px;
+  text-align: center;
+}
+
+.about-hero-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.about-hero-inner .eyebrow {
+  justify-content: center;
+}
+
+.about-hero h1 {
+  margin-bottom: 16px;
+  font-size: clamp(1.9rem, 1.5rem + 1.6vw, 2.75rem);
+}
+
+.about-hero-text {
+  font-size: 1.08rem;
+  width: 700px;
+}
+
+/* ---------- Shared block layout: label column + content column ---------- */
+.about-block {
+  padding: 48px 0;
+}
+    
+
+.about-block-inner {
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.about-block-label {
+  position: relative;
+  padding-left: 18px;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: var(--color-ink);
+  margin-bottom: 20px;
+}
+
+.about-block-label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-signal);
+  border-radius: 2px;
+}
+
+.about-block-content p {
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+.about-block-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- "What I Do" bullet list ---------- */
+.about-list li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: var(--color-slate);
+}
+
+.about-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-signal);
+}
+
+.about-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- "Current Focus" skill tags ---------- */
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.about-tags li {
+  font-family: var(--font-mono);
+  font-size: 0.83rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  background-color: var(--color-signal-tint);
+  color: var(--color-signal);
+  border-radius: 999px;
+}
+
+/* ==========================================================================
+   LET'S CONNECT — fixed "blueprint" band, matching the stats section/footer
+   ========================================================================== */
+.about-connect {
+  padding: 72px 0;
+  background-color: var(--band-bg);
+}
+
+.about-connect-inner {
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-connect .about-block-label {
+  display: inline-block;
+  color: var(--band-text);
+  margin-bottom: 14px;
+}
+
+.about-connect-inner > p {
+  color: var(--band-text-muted);
+  margin-bottom: 32px;
+  width: 800px;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 420px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--band-border);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  width: 120%;
+}
+
+.contact-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(3px);
+}
+
+.contact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--band-text);
+  flex-shrink: 0;
+}
+
+.contact-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.contact-label {
+  width: 72px;
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--band-text-muted);
+}
+
+.contact-value {
+  font-size: 0.92rem;
+  color: var(--band-text);
+  word-break: break-word;
+  transition: color var(--transition-fast);
+}
+
+.contact-value:hover,
+.contact-value:focus-visible {
+  color: var(--color-signal);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 700px) {
+  .about-block-inner {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .contact-label {
+    width: 60px;
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-item {
+    flex-wrap: wrap;
+  }
+
+  .contact-label {
+    width: auto;
+  }
+}

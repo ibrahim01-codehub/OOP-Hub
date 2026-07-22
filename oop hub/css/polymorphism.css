@@ -1,0 +1,65 @@
+/* ==========================================================================
+   POLYMORPHISM — page-specific visuals
+   One shared interface, several different forms diagram.
+   ========================================================================== */
+.poly-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  margin-bottom: 16px;
+}
+
+.poly-base {
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-slate);
+  border-radius: var(--radius-sm);
+  padding: 12px 24px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-ink);
+  margin-bottom: 18px;
+}
+
+.poly-base small {
+  display: block;
+  font-weight: 400;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--color-slate);
+  margin-top: 2px;
+}
+
+.poly-forms {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.poly-form {
+  border-radius: var(--radius-sm);
+  padding: 12px 18px;
+  text-align: center;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  min-width: 120px;
+}
+
+.poly-form small {
+  display: block;
+  font-weight: 400;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--color-slate);
+  margin-top: 2px;
+}
+
+.poly-form--a { background-color: var(--color-signal-tint); border: 1.5px solid var(--color-signal); }
+.poly-form--b { background-color: var(--color-violet-tint); border: 1.5px solid var(--color-violet); }
+.poly-form--c { background-color: var(--color-amber-tint); border: 1.5px solid var(--color-amber); }

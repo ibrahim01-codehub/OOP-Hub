@@ -1,0 +1,11 @@
+{
+  "brand": "OOP Concepts",
+  "items": [
+    { "id": "classes-objects", "label": "Classes & Objects", "file": "classes-objects.html" },
+    { "id": "methods", "label": "Methods", "file": "methods.html" },
+    { "id": "encapsulation", "label": "Encapsulation", "file": "encapsulation.html" },
+    { "id": "abstraction", "label": "Abstraction", "file": "abstraction.html" },
+    { "id": "inheritance", "label": "Inheritance", "file": "inheritance.html" },
+    { "id": "polymorphism", "label": "Polymorphism", "file": "polymorphism.html" }
+  ]
+}

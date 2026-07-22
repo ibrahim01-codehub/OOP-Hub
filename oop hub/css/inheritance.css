@@ -1,0 +1,71 @@
+/* ==========================================================================
+   INHERITANCE — page-specific visuals
+   A small base-class → derived-classes tree diagram.
+   ========================================================================== */
+.inh-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  margin-bottom: 16px;
+}
+
+.inh-node {
+  border-radius: var(--radius-sm);
+  padding: 12px 20px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--color-ink);
+}
+
+.inh-node small {
+  display: block;
+  font-weight: 400;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--color-slate);
+  margin-top: 2px;
+}
+
+.inh-node--base {
+  background-color: var(--color-signal-tint);
+  border: 1.5px solid var(--color-signal);
+}
+
+.inh-node--derived {
+  background-color: var(--color-teal-tint);
+  border: 1.5px solid var(--color-teal);
+}
+
+.inh-lines {
+  width: 2px;
+  height: 18px;
+  background-color: var(--color-border);
+  position: relative;
+}
+.inh-lines::before,
+.inh-lines::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  width: 60px;
+  height: 18px;
+  border-top: 2px solid var(--color-border);
+}
+.inh-lines::before { right: 50%; border-left: 2px solid var(--color-border); border-radius: 0 0 0 8px; }
+.inh-lines::after { left: 50%; border-right: 2px solid var(--color-border); border-radius: 0 0 8px 0; }
+
+.inh-children {
+  display: flex;
+  gap: 90px;
+  margin-top: 18px;
+}
+
+@media (max-width: 560px) {
+  .inh-children { gap: 20px; }
+  .inh-lines::before, .inh-lines::after { width: 20px; }
+}

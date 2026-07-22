@@ -1,0 +1,230 @@
+/* ==========================================================================
+   CONTACT PAGE
+   Main-content only, per request — no header/footer here. Assumes this
+   loads AFTER css/index.css (design tokens, .btn, .eyebrow, .section,
+   .container, .schematic-frame are all defined there), and that this
+   markup gets dropped into the same header/footer shell as the rest of
+   the site (see index.html / about.html for that scaffold).
+   ========================================================================== */
+
+/* ---------- Page intro ---------- */
+.contact-hero {
+  padding: 72px 0 24px;
+  text-align: center;
+}
+
+.contact-hero-inner .eyebrow {
+  justify-content: center;
+}
+
+.contact-hero h1 {
+  font-size: clamp(1.9rem, 1.5rem + 1.6vw, 2.75rem);
+}
+
+/* ---------- Layout ---------- */
+.contact-section {
+  padding-top: 24px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 28px;
+  align-items: start;
+  max-width: 80%;
+}
+
+.contact-side {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ---------- Shared card shell ---------- */
+.contact-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+}
+
+.contact-card-title {
+  margin-bottom: 20px;
+}
+
+.contact-card-text {
+  font-size: 0.96rem;
+  margin-bottom: 24px;
+}
+
+/* ---------- Form ---------- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--color-ink);
+}
+
+.form-field input,
+.form-field textarea {
+  font-family: var(--font-body);
+  font-size: 0.96rem;
+  color: var(--color-ink);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--color-slate);
+  opacity: 0.8;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--color-signal);
+  box-shadow: 0 0 0 3px var(--color-signal-tint);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.contact-submit {
+  justify-content: center;
+  width: 100%;
+  margin-top: 4px;
+}
+
+/* ---------- Contact Information list ---------- */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.contact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: var(--color-signal-tint);
+  color: var(--color-signal);
+  flex-shrink: 0;
+}
+
+.contact-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.contact-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contact-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-slate);
+}
+
+.contact-value {
+  font-size: 0.95rem;
+  color: var(--color-signal);
+  word-break: break-word;
+  transition: color var(--transition-fast);
+}
+
+.contact-value:hover,
+.contact-value:focus-visible {
+  color: var(--color-signal-dark);
+  text-decoration: underline;
+}
+
+/* ---------- "Connect With Me" outlined buttons ---------- */
+.connect-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.connect-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-ink);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.connect-btn svg {
+  width: 17px;
+  height: 17px;
+  color: var(--color-signal);
+}
+
+.connect-btn:hover,
+.connect-btn:focus-visible {
+  border-color: var(--color-signal);
+  background-color: var(--color-signal-tint);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 860px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-card {
+    padding: 24px;
+  }
+
+  .connect-buttons {
+    flex-direction: column;
+  }
+
+  .connect-btn {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <script>document.documentElement.classList.add('js');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OOP Mastery — Learn Object-Oriented Programming</title>
+  <meta name="description" content="A structured, example-driven guide to Object-Oriented Programming — clear theory, real examples, and hands-on practice for every core OOP concept.">
+
+  <!-- Fonts: Space Grotesk (display), IBM Plex Sans (body), IBM Plex Mono (code / labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- ==========================================================================
+       HEADER — brand (left) · 5-item primary nav (center) · theme toggle (right)
+       ========================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner container">
+
+      <a href="index.html" class="brand" id="site-logo" aria-label="OOP Mastery — home">
+        <span class="logo-badge">
+          <span class="logo-mark" aria-hidden="true">{<i class="logo-dot"></i>}</span>
+        </span>
+        <span class="brand-name">OOP Mastery</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="../index.html" class="nav-link is-active" aria-current="page">Home</a></li>
+          <li><a href="html/explore.html" class="nav-link">Topics</a></li>
+          <li><a href="html/practice.html" class="nav-link">Examples</a></li>
+          <li><a href="html/about.html" class="nav-link">About</a></li>
+          <li><a href="html/contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark theme" aria-pressed="false">
+          <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ==========================================================================
+         HERO
+         ========================================================================== -->
+    <section class="hero" id="hero">
+      <div class="hero-inner container">
+
+        <div class="hero-content">
+          <p class="eyebrow">Theory <span class="eyebrow-arrow">→</span> Examples <span class="eyebrow-arrow">→</span> Practice, every topic</p>
+          <h1 class="hero-title">Master Object-Oriented Programming, one blueprint at a time</h1>
+          <p class="hero-subtitle">Every core concept broken into clear theory, worked examples, and hands-on practice problems — from your first class to advanced inheritance and polymorphism.</p>
+          <a href="./html/explore.html" class="btn btn-primary">
+            Start Learning
+            <svg class="icon icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+
+        <div class="hero-visual">
+          <div class="code-panel schematic-frame" id="hero-code-panel">
+            <div class="code-panel-header">
+              <span class="code-panel-tag">class</span>
+              <span class="code-panel-filename">Car.js</span>
+              <span class="code-panel-status" aria-hidden="true"></span>
+            </div>
+            <!-- Intentionally left empty — inject code / typewriter animation via JS using #hero-code-output -->
+            <pre class="code-panel-body"><code id="hero-code-output" class="code-panel-code"></code></pre>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         01 · FOUNDATIONS — What is OOP
+         ========================================================================== -->
+    <section class="section" id="what-is-oop">
+      <div class="container section-grid">
+
+        <div class="section-text" data-reveal>
+          <p class="eyebrow"><span class="eyebrow-num">01</span> Foundations</p>
+          <h2>What is Object-Oriented Programming?</h2>
+          <p>Object-Oriented Programming (OOP) organizes software around <strong>objects</strong> rather than actions — self-contained units that bundle data (attributes) with the behavior (methods) that acts on it.</p>
+          <p>Instead of writing one long list of instructions, you model the pieces of your program after real things and the relationships between them. That single shift is why OOP underlies most of the languages you'll actually ship code in — Java, C++, C#, Python, and more.</p>
+        </div>
+
+        <div class="section-visual" data-reveal>
+          <div class="object-card schematic-frame">
+            <div class="object-card-header">
+              <span class="object-card-tag">object</span>
+              <span class="object-card-name">Car</span>
+            </div>
+            <div class="object-card-body">
+              <div class="object-card-group">
+                <span class="object-card-label">Attributes</span>
+                <ul class="object-card-list">
+                  <li>brand</li>
+                  <li>color</li>
+                  <li>speed</li>
+                </ul>
+              </div>
+              <div class="object-card-divider" aria-hidden="true"></div>
+              <div class="object-card-group">
+                <span class="object-card-label">Methods</span>
+                <ul class="object-card-list object-card-list--mono">
+                  <li>drive()</li>
+                  <li>brake()</li>
+                  <li>honk()</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         02 · CORE PRINCIPLES — The Four Pillars
+         ========================================================================== -->
+    <section class="section section--alt" id="oop-pillars">
+      <div class="container">
+
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow"><span class="eyebrow-num">02</span> Core Principles</p>
+          <h2>The four pillars of OOP</h2>
+          <p>Four ideas hold up almost everything else in object-oriented design. Learn these well and the rest of OOP starts to click.</p>
+        </div>
+
+        <div class="pillars-grid">
+
+          <article class="pillar-card" data-reveal>
+            <div class="pillar-icon pillar-icon--encapsulation">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="4" y="10" width="16" height="11" rx="2"></rect>
+                <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+              </svg>
+            </div>
+            <h3 class="pillar-name">Encapsulation</h3>
+            <p class="pillar-desc">Keep an object's data and the logic that changes it together, and hide what the rest of the program doesn't need to see.</p>
+          </article>
+
+          <article class="pillar-card" data-reveal>
+            <div class="pillar-icon pillar-icon--abstraction">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2 2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <h3 class="pillar-name">Abstraction</h3>
+            <p class="pillar-desc">Expose a simple interface for what an object does, and hide the complexity of how it does it underneath.</p>
+          </article>
+
+          <article class="pillar-card" data-reveal>
+            <div class="pillar-icon pillar-icon--inheritance">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="6" y1="3" x2="6" y2="15"></line>
+                <circle cx="18" cy="6" r="3"></circle>
+                <circle cx="6" cy="18" r="3"></circle>
+                <path d="M18 9a9 9 0 0 1-9 9"></path>
+              </svg>
+            </div>
+            <h3 class="pillar-name">Inheritance</h3>
+            <p class="pillar-desc">Let a new class reuse and extend an existing one, instead of rebuilding shared behavior from scratch.</p>
+          </article>
+
+          <article class="pillar-card" data-reveal>
+            <div class="pillar-icon pillar-icon--polymorphism">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="16 3 21 3 21 8"></polyline>
+                <line x1="4" y1="20" x2="21" y2="3"></line>
+                <polyline points="21 16 21 21 16 21"></polyline>
+                <line x1="15" y1="15" x2="21" y2="21"></line>
+                <line x1="4" y1="4" x2="9" y2="9"></line>
+              </svg>
+            </div>
+            <h3 class="pillar-name">Polymorphism</h3>
+            <p class="pillar-desc">Call the same method on different objects and let each one respond in its own way.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         03 · TRADE-OFFS — Advantages vs Disadvantages
+         ========================================================================== -->
+    <section class="section" id="pros-cons">
+      <div class="container">
+
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow"><span class="eyebrow-num">03</span> Trade-offs</p>
+          <h2>Advantages &amp; disadvantages of OOP</h2>
+          <p>OOP is a tool suited to certain problems, not a universal answer. Here's an honest look at both sides before you commit to it.</p>
+        </div>
+
+        <div class="pros-cons-grid">
+
+          <div class="comparison-card comparison-card--pros" data-reveal>
+            <h3 class="comparison-title">Advantages</h3>
+            <ul class="comparison-list">
+              <li class="comparison-item">
+                <span class="comparison-icon comparison-icon--pro" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                <div class="comparison-text">
+                  <strong>Modularity</strong>
+                  <p>Objects are self-contained, so pieces of a system can be built, tested, and swapped independently.</p>
+                </div>
+              </li>
+              <li class="comparison-item">
+                <span class="comparison-icon comparison-icon--pro" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                <div class="comparison-text">
+                  <strong>Easier maintenance</strong>
+                  <p>Encapsulation limits how far a single change ripples through the rest of the codebase.</p>
+                </div>
+              </li>
+              <li class="comparison-item">
+                <span class="comparison-icon comparison-icon--pro" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                <div class="comparison-text">
+                  <strong>Natural modeling</strong>
+                  <p>Real-world entities and relationships map directly onto classes and objects.</p>
+                </div>
+              </li>
+              <li class="comparison-item">
+                <span class="comparison-icon comparison-icon--pro" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                <div class="comparison-text">
+                  <strong>Room to grow</strong>
+                  <p>Inheritance and polymorphism let a codebase scale without constant rewrites.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="comparison-card comparison-card--cons" data-reveal>
+            <h3 class="comparison-title">Disadvantages</h3>
+            <ul class="comparison-list">
+              <li class="comparison-item">
+                <span class="comparison-icon comparison-icon--con" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </span>
+                <div class="comparison-text">
+                  <strong>Learning curve</strong>
+                  <p>Abstraction, inheritance, and polymorphism take real practice to internalize.</p>
+                </div>
+              </li>
+              <li class="comparison-item">
+                <span class="comparison-icon comparison-icon--con" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </span>
+                <div class="comparison-text">
+                  <strong>Over-engineering risk</strong>
+                  <p>Simple problems can end up buried under class hierarchies they don't actually need.</p>
+                </div>
+              </li>
+              <li class="comparison-item">
+                <span class="comparison-icon comparison-icon--con" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </span>
+                <div class="comparison-text">
+                  <strong>Some overhead</strong>
+                  <p>Extra layers of indirection can cost performance versus straightforward procedural code.</p>
+                </div>
+              </li>
+              <li class="comparison-item">
+                <span class="comparison-icon comparison-icon--con" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </span>
+                <div class="comparison-text">
+                  <strong>Design debt</strong>
+                  <p>A weak class structure early on gets expensive to untangle later.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         04 · INSIDE THE COURSE — Stats band (fixed "blueprint" palette, both themes)
+         ========================================================================== -->
+    <section class="section stats-band" id="site-stats">
+      <div class="container">
+
+        <div class="section-heading section-heading--band" data-reveal>
+          <p class="eyebrow eyebrow--band"><span class="eyebrow-num">04</span> Inside the course</p>
+          <h2>OOP Mastery by the numbers</h2>
+          <p>Everything you need to go from theory to working code.</p>
+        </div>
+
+        <div class="stats-grid">
+
+          <div class="stat-card" data-reveal>
+            <span class="stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+            </span>
+            <span class="stat-number">7</span>
+            <span class="stat-label">Core topics</span>
+          </div>
+
+          <div class="stat-card" data-reveal>
+            <span class="stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+            </span>
+            <span class="stat-number">21</span>
+            <span class="stat-label">Theory, example &amp; practice pages</span>
+          </div>
+
+          <div class="stat-card" data-reveal>
+            <span class="stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </span>
+            <span class="stat-number">100+</span>
+            <span class="stat-label">Code examples</span>
+          </div>
+
+          <div class="stat-card" data-reveal>
+            <span class="stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"></path>
+              </svg>
+            </span>
+            <span class="stat-number">30+</span>
+            <span class="stat-label">Project ideas</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER — brand + description · Quick Links (5) + prominent Cheatsheet · About
+       ========================================================================== -->
+  <footer class="site-footer" id="site-footer">
+    <div class="container footer-grid">
+ 
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="logo-badge">
+            <span class="logo-mark" aria-hidden="true">{<i class="logo-dot"></i>}</span>
+          </span>
+          <span class="brand-name">OOP Mastery</span>
+        </a>
+        <p class="footer-desc">A structured, example-driven guide to object-oriented programming — built to take you from your first class to your first real project.</p>
+      </div>
+ 
+      <div class="footer-col">
+        <h3 class="footer-heading">Quick links</h3>
+        <ul class="footer-links">
+          <li><a href="html/oop.html">OOP</a></li>
+          <li><a href="html/classes.html">Classes &amp; Objects</a></li>
+          <li><a href="html/encapsulation.html">Encapsulation</a></li>
+          <li><a href="html/inheritance.html" >Inheritance</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="html/polymoorphism.html">Polymorphism</a></li>
+          <li><a href="html/abstraction.html">Abstraction</a></li>
+        </ul>
+      </div>
+ 
+      <div class="footer-col">
+          <h3 class="footer-heading">Explore More</h3>
+        <ul class="footer-links">
+          <li><a href="html/explore.html">Playground c++</a></li>
+          <li><a href="html/practice.html">Practice Problems</a></li>
+          <li><a href="html/practice.html">Project ideas</a></li>
+        </ul>
+      </div>
+ 
+ 
+      <div class="footer-col">
+        <h3 class="footer-heading">About</h3>
+        <ul class="footer-links">
+          <li><a href="html/about.html">About Us</a></li>
+          <li><a href="html/contact.html">Contact</a></li>
+        </ul>
+      </div>
+ 
+    </div>
+ 
+    <div class="footer-cheatsheet-band">
+      <div class="container footer-cheatsheet-inner">
+        <p class="footer-cheatsheet-label">Need a quick reference while you code?</p>
+        <a href="../html/cheatsheet.html" class="footer-cheatsheet" id="footer-cheatsheet-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span>OOP Cheatsheet</span>
+          <svg class="footer-cheatsheet-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M13 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+ 
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 OOP Mastery. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script src="js/scrollingCode.js"></script>
+</body>
+</html>

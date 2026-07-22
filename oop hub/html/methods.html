@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <script>document.documentElement.classList.add('js');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OOP Mastery — Learn Object-Oriented Programming</title>
+  <meta name="description" content="A structured, example-driven guide to Object-Oriented Programming — clear theory, real examples, and hands-on practice for every core OOP concept.">
+
+  <!-- Fonts: Space Grotesk (display), IBM Plex Sans (body), IBM Plex Mono (code / labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+ 
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/methods.css">
+  <link rel="stylesheet" href="../css/sidebar.css">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- ==========================================================================
+       HEADER — brand (left) · 5-item primary nav (center) · theme toggle (right)
+       ========================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner container">
+
+      <a href="index.html" class="brand" id="site-logo" aria-label="OOP Mastery — home">
+        <span class="logo-badge">
+          <span class="logo-mark" aria-hidden="true">{<i class="logo-dot"></i>}</span>
+        </span>
+        <span class="brand-name">OOP Mastery</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="../index.html" class="nav-link" aria-current="page">Home</a></li>
+          <li><a href="explore.html" class="nav-link">Topics</a></li>
+          <li><a href="practice.html" class="nav-link">Examples</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark theme" aria-pressed="false">
+          <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  
+<main>
+  <div class="docs-shell">
+ 
+    <div class="sidebar"></div>
+ 
+    <div class="content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span class="crumb-sep">/</span>
+        <a href="#">Topics</a><span class="crumb-sep">/</span>
+        <span aria-current="page">Methods</span>
+      </nav>
+ 
+      <span class="page-badge">OOP Concept</span>
+      <h1 class="page-title">Methods</h1>
+      <p class="page-intro">
+        Methods are the functions that live inside a class. This page covers four
+        decisions you'll make about them constantly: who can call a member
+        (private vs public), whether your type defaults to open or closed
+        (class vs struct), how an object's lifetime starts and ends (constructor
+        vs destructor), and two special function types that bend the normal
+        rules (friend vs virtual).
+      </p>
+ 
+      <div class="callout">
+        <span class="callout-icon">💡</span>
+        <p>These four pairs aren't really opposites — they're independent knobs.
+          A class can be public-by-default (a struct) <em>and</em> still have a
+          constructor, a destructor, and virtual methods.</p>
+      </div>
+ 
+      <section class="box learn-box" aria-label="What you'll learn">
+        <h2 class="box-title">What You'll Learn Here</h2>
+        <ul class="check-list">
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>How <code>private</code> and <code>public</code> control access to a member</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>The one real difference between <code>class</code> and <code>struct</code> in C++</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>How constructors and destructors manage an object's lifetime automatically</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>When to reach for a friend function versus a virtual function</li>
+        </ul>
+      </section>
+ 
+      <!-- ===================== 1. PRIVATE VS PUBLIC ===================== -->
+      <section class="content-section method-subsection method-subsection--access">
+        <span class="method-kicker">Access Modifiers</span>
+        <h2>Private vs Public</h2>
+        <p>
+          <code>private</code> members can only be reached from inside the class
+          itself. <code>public</code> members can be reached from anywhere the
+          object is visible. This is the mechanism encapsulation is built on:
+          keep data <code>private</code>, expose a controlled <code>public</code>
+          interface to work with it.
+        </p>
+ 
+        <div class="compare-grid">
+          <div class="compare-card compare-card--a">
+            <h3>private</h3>
+            <p>Accessible only inside the class's own methods. The default access
+              level for a <code>class</code>.</p>
+          </div>
+          <div class="compare-card compare-card--b">
+            <h3>public</h3>
+            <p>Accessible from anywhere the object exists — other classes, other
+              functions, <code>main()</code>.</p>
+          </div>
+        </div>
+ 
+        <h3>Syntax</h3>
+        <div class="code-panel">
+          <div class="code-panel-header">
+            <span class="code-panel-tag">syntax</span>
+            <span class="code-panel-filename">access-modifiers.cpp</span>
+          </div>
+          <div class="code-panel-body"><pre class="code-panel-code"><span class="kw">class</span> <span class="ty">ClassName</span> {
+<span class="kw">private</span>:
+    <span class="ty">int</span> hiddenData;      <span class="cm">// only usable inside this class</span>
+ 
+<span class="kw">public</span>:
+    <span class="kw">void</span> <span class="fn">setData</span>(<span class="ty">int</span> value) { hiddenData = value; }
+    <span class="ty">int</span> <span class="fn">getData</span>() { <span class="kw">return</span> hiddenData; }
+};</pre></div>
+        </div>
+ 
+        <h3>Code Example (C++)</h3>
+        <div class="code-panel">
+          <div class="code-panel-header">
+            <span class="code-panel-tag">example</span>
+            <span class="code-panel-filename">bank-account.cpp</span>
+          </div>
+          <div class="code-panel-body"><pre class="code-panel-code"><span class="kw">#include</span> &lt;iostream&gt;
+<span class="kw">using namespace</span> std;
+ 
+<span class="kw">class</span> <span class="ty">BankAccount</span> {
+<span class="kw">private</span>:
+    <span class="ty">double</span> balance;                 <span class="cm">// can't be touched directly</span>
+ 
+<span class="kw">public</span>:
+    <span class="kw">void</span> <span class="fn">deposit</span>(<span class="ty">double</span> amount) { balance += amount; }
+    <span class="ty">double</span> <span class="fn">getBalance</span>() { <span class="kw">return</span> balance; }
+};
+ 
+<span class="ty">int</span> <span class="fn">main</span>() {
+    <span class="ty">BankAccount</span> acc;
+    acc.deposit(500);            <span class="cm">// OK — public method</span>
+    <span class="cm">// acc.balance = 999;       // ERROR — private, won't compile</span>
+    cout &lt;&lt; <span class="str">"Balance: "</span> &lt;&lt; acc.getBalance() &lt;&lt; endl;
+    <span class="kw">return</span> 0;
+}</pre></div>
+        </div>
+        <div class="output-box">
+          <span class="output-label">Output</span>
+          <pre>Balance: 500</pre>
+        </div>
+      </section>
+ 
+      <!-- ===================== 2. CLASS VS STRUCT ===================== -->
+      <section class="content-section method-subsection method-subsection--struct">
+        <span class="method-kicker">Type Declaration</span>
+        <h2>Class vs Struct</h2>
+        <p>
+          In C++, <code>class</code> and <code>struct</code> can both hold
+          attributes, methods, constructors, and take part in inheritance — the
+          only real difference is their default access level.
+        </p>
+ 
+        <div class="compare-grid">
+          <div class="compare-card compare-card--a">
+            <h3>class</h3>
+            <p>Members are <code>private</code> by default. The conventional
+              choice when a type has behavior to protect.</p>
+          </div>
+          <div class="compare-card compare-card--b">
+            <h3>struct</h3>
+            <p>Members are <code>public</code> by default. The conventional
+              choice for simple, data-only bundles.</p>
+          </div>
+        </div>
+ 
+        <h3>Syntax</h3>
+        <div class="code-panel">
+          <div class="code-panel-header">
+            <span class="code-panel-tag">syntax</span>
+            <span class="code-panel-filename">class-vs-struct.cpp</span>
+          </div>
+          <div class="code-panel-body"><pre class="code-panel-code"><span class="kw">class</span> <span class="ty">PointClass</span> {
+    <span class="ty">int</span> x, y;        <span class="cm">// private by default</span>
+};
+ 
+<span class="kw">struct</span> <span class="ty">PointStruct</span> {
+    <span class="ty">int</span> x, y;        <span class="cm">// public by default</span>
+};</pre></div>
+        </div>
+ 
+        <h3>Code Example (C++)</h3>
+        <div class="code-panel">
+          <div class="code-panel-header">
+            <span class="code-panel-tag">example</span>
+            <span class="code-panel-filename">point.cpp</span>
+          </div>
+          <div class="code-panel-body"><pre class="code-panel-code"><span class="kw">#include</span> &lt;iostream&gt;
+<span class="kw">using namespace</span> std;
+ 
+<span class="kw">struct</span> <span class="ty">Point</span> {
+    <span class="ty">int</span> x;
+    <span class="ty">int</span> y;              <span class="cm">// public — no getters needed</span>
+};
+ 
+<span class="ty">int</span> <span class="fn">main</span>() {
+    <span class="ty">Point</span> p;
+    p.x = 4;                 <span class="cm">// works directly — struct is public by default</span>
+    p.y = 9;
+    cout &lt;&lt; <span class="str">"("</span> &lt;&lt; p.x &lt;&lt; <span class="str">", "</span> &lt;&lt; p.y &lt;&lt; <span class="str">")"</span> &lt;&lt; endl;
+    <span class="kw">return</span> 0;
+}</pre></div>
+        </div>
+        <div class="output-box">
+          <span class="output-label">Output</span>
+          <pre>(4, 9)</pre>
+        </div>
+      </section>
+ 
+      <!-- ===================== 3. CONSTRUCTOR VS DESTRUCTOR ===================== -->
+      <section class="content-section method-subsection method-subsection--lifecycle">
+        <span class="method-kicker">Object Lifecycle</span>
+        <h2>Constructor vs Destructor</h2>
+        <p>
+          A constructor runs automatically when an object is created, usually to
+          set up its initial data. A destructor runs automatically when an
+          object is destroyed, usually to release anything it was holding onto.
+        </p>
+ 
+        <div class="compare-grid">
+          <div class="compare-card compare-card--a">
+            <h3>Constructor</h3>
+            <p>Same name as the class, no return type. Can be overloaded to accept
+              different parameters. Runs once, on creation.</p>
+          </div>
+          <div class="compare-card compare-card--b">
+            <h3>Destructor</h3>
+            <p>Class name prefixed with <code>~</code>, no parameters, no return
+              type, and only one per class. Runs once, on destruction.</p>
+          </div>
+        </div>
+ 
+        <h3>Syntax</h3>
+        <div class="code-panel">
+          <div class="code-panel-header">
+            <span class="code-panel-tag">syntax</span>
+            <span class="code-panel-filename">constructor-destructor.cpp</span>
+          </div>
+          <div class="code-panel-body"><pre class="code-panel-code"><span class="kw">class</span> <span class="ty">ClassName</span> {
+<span class="kw">public</span>:
+    <span class="fn">ClassName</span>() {           <span class="cm">// constructor</span>
+        <span class="cm">// runs when an object is created</span>
+    }
+ 
+    <span class="fn">~ClassName</span>() {          <span class="cm">// destructor</span>
+        <span class="cm">// runs when an object is destroyed</span>
+    }
+};</pre></div>
+        </div>
+ 
+        <h3>Code Example (C++)</h3>
+        <div class="code-panel">
+          <div class="code-panel-header">
+            <span class="code-panel-tag">example</span>
+            <span class="code-panel-filename">logger.cpp</span>
+          </div>
+          <div class="code-panel-body"><pre class="code-panel-code"><span class="kw">#include</span> &lt;iostream&gt;
+<span class="kw">using namespace</span> std;
+ 
+<span class="kw">class</span> <span class="ty">Logger</span> {
+<span class="kw">public</span>:
+    <span class="fn">Logger</span>() { cout &lt;&lt; <span class="str">"Logger created"</span> &lt;&lt; endl; }
+    <span class="fn">~Logger</span>() { cout &lt;&lt; <span class="str">"Logger destroyed"</span> &lt;&lt; endl; }
+};
+ 
+<span class="ty">int</span> <span class="fn">main</span>() {
+    <span class="ty">Logger</span> log;           <span class="cm">// constructor runs here</span>
+    cout &lt;&lt; <span class="str">"Doing some work..."</span> &lt;&lt; endl;
+    <span class="kw">return</span> 0;             <span class="cm">// destructor runs here, automatically</span>
+}</pre></div>
+        </div>
+        <div class="output-box">
+          <span class="output-label">Output</span>
+          <pre>Logger created
+Doing some work...
+Logger destroyed</pre>
+        </div>
+      </section>
+ 
+      <!-- ===================== 4. FRIEND VS VIRTUAL ===================== -->
+      <section class="content-section method-subsection method-subsection--advanced">
+        <span class="method-kicker">Advanced Functions</span>
+        <h2>Friend Function vs Virtual Function</h2>
+        <p>
+          A friend function is an outsider granted access to a class's private
+          members — useful, but it opts out of encapsulation, so it's worth using
+          sparingly. A virtual function is the opposite kind of tool: a member
+          function a base class expects derived classes to override, resolved at
+          runtime rather than compile time — the mechanism behind polymorphism.
+        </p>
+ 
+        <div class="compare-grid">
+          <div class="compare-card compare-card--a">
+            <h3>friend</h3>
+            <p>A non-member function or class explicitly given access to a
+              class's <code>private</code> and <code>protected</code> members.
+              Not inherited, not called through an object.</p>
+          </div>
+          <div class="compare-card compare-card--b">
+            <h3>virtual</h3>
+            <p>A member function marked so a derived class's override is called,
+              even through a base-class pointer or reference. Resolved at
+              runtime.</p>
+          </div>
+        </div>
+ 
+        <h3>Syntax</h3>
+        <div class="code-panel">
+          <div class="code-panel-header">
+            <span class="code-panel-tag">syntax</span>
+            <span class="code-panel-filename">friend-virtual.cpp</span>
+          </div>
+          <div class="code-panel-body"><pre class="code-panel-code"><span class="kw">class</span> <span class="ty">ClassName</span> {
+    <span class="kw">friend</span> <span class="kw">void</span> <span class="fn">outsideFunction</span>(<span class="ty">ClassName</span> obj); <span class="cm">// grants access</span>
+ 
+<span class="kw">public</span>:
+    <span class="kw">virtual</span> <span class="kw">void</span> <span class="fn">speak</span>() {          <span class="cm">// overridable by derived classes</span>
+        <span class="cm">// default behavior</span>
+    }
+};</pre></div>
+        </div>
+ 
+        <h3>Code Example (C++)</h3>
+        <div class="code-panel">
+          <div class="code-panel-header">
+            <span class="code-panel-tag">example</span>
+            <span class="code-panel-filename">animal.cpp</span>
+          </div>
+          <div class="code-panel-body"><pre class="code-panel-code"><span class="kw">#include</span> &lt;iostream&gt;
+<span class="kw">using namespace</span> std;
+ 
+<span class="kw">class</span> <span class="ty">Animal</span> {
+<span class="kw">private</span>:
+    <span class="ty">int</span> age;
+ 
+<span class="kw">public</span>:
+    <span class="fn">Animal</span>(<span class="ty">int</span> a) : age(a) {}
+ 
+    <span class="cm">// friend: an outsider allowed to read private data from two Animals</span>
+    <span class="kw">friend</span> <span class="kw">bool</span> <span class="fn">isOlder</span>(<span class="ty">Animal</span>&amp; a, <span class="ty">Animal</span>&amp; b);
+ 
+    <span class="cm">// virtual: derived classes are expected to override this</span>
+    <span class="kw">virtual</span> <span class="kw">void</span> <span class="fn">speak</span>() { cout &lt;&lt; <span class="str">"..."</span> &lt;&lt; endl; }
+};
+ 
+<span class="kw">bool</span> <span class="fn">isOlder</span>(<span class="ty">Animal</span>&amp; a, <span class="ty">Animal</span>&amp; b) {
+    <span class="kw">return</span> a.age &gt; b.age;    <span class="cm">// reaching into private data directly</span>
+}
+ 
+<span class="kw">class</span> <span class="ty">Dog</span> : <span class="kw">public</span> <span class="ty">Animal</span> {
+<span class="kw">public</span>:
+    <span class="fn">Dog</span>(<span class="ty">int</span> a) : Animal(a) {}
+    <span class="kw">void</span> <span class="fn">speak</span>() <span class="kw">override</span> { cout &lt;&lt; <span class="str">"Woof!"</span> &lt;&lt; endl; }
+};
+ 
+<span class="ty">int</span> <span class="fn">main</span>() {
+    <span class="ty">Animal</span> generic(3);
+    <span class="ty">Dog</span> rex(5);
+ 
+    rex.speak();                                  <span class="cm">// virtual: calls Dog's version</span>
+    cout &lt;&lt; isOlder(rex, generic) &lt;&lt; endl;        <span class="cm">// friend: 1 (true)</span>
+    <span class="kw">return</span> 0;
+}</pre></div>
+        </div>
+        <div class="output-box">
+          <span class="output-label">Output</span>
+          <pre>Woof!
+1</pre>
+        </div>
+      </section>
+ 
+      <section class="box pros-box" aria-label="Pros of understanding these method types">
+        <h2 class="box-title">Pros of Knowing These Four</h2>
+        <ul class="check-list">
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><code>private</code>/<code>public</code> gives you deliberate, controlled access to data</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><code>class</code>/<code>struct</code> lets you pick the right default for the job, simple data vs protected behavior</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Constructors/destructors automate setup and cleanup — no manual bookkeeping</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>friend/virtual extend the object model exactly where the rules need to bend</li>
+        </ul>
+      </section>
+ 
+      <section class="content-section">
+        <h2>Real-Life Analogy</h2>
+        <div class="analogy">
+          <span class="analogy-icon">🏢</span>
+          <p><strong>Think of an office building.</strong> <code>private</code> rooms
+            need a keycard (only staff — the class itself — get in), <code>public</code>
+            areas are open to visitors. A <code>struct</code> is like a small open-plan
+            desk — no doors by default. The <code>constructor</code> is the building
+            opening for the day, the <code>destructor</code> is locking up at night.
+            A <code>friend</code> is a contractor handed a one-time keycard; a
+            <code>virtual</code> role is a job title — "manager" — where each branch
+            fills it with its own person.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+ 
+  
+ <footer class="site-footer" id="site-footer">
+    <div class="container footer-grid">
+ 
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="logo-badge">
+            <span class="logo-mark" aria-hidden="true">{<i class="logo-dot"></i>}</span>
+          </span>
+          <span class="brand-name">OOP Mastery</span>
+        </a>
+        <p class="footer-desc">A structured, example-driven guide to object-oriented programming — built to take you from your first class to your first real project.</p>
+      </div>
+ 
+      <div class="footer-col">
+        <h3 class="footer-heading">Quick links</h3>
+        <ul class="footer-links">
+          <li><a href="oop.html">OOP</a></li>
+          <li><a href="classes.html">Classes &amp; Objects</a></li>
+          <li><a href="encapsulation.html">Encapsulation</a></li>
+          <li><a href="inheritance.html" >Inheritance</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="polymoorphism.html">Polymorphism</a></li>
+          <li><a href="abstraction.html">Abstraction</a></li>
+        </ul>
+      </div>
+ 
+      <div class="footer-col">
+          <h3 class="footer-heading">Explore More</h3>
+        <ul class="footer-links">
+          <li><a href="explore.html">Playground c++</a></li>
+          <li><a href="practice.html">Practice Problems</a></li>
+        </ul>
+      </div>
+ 
+ 
+      <div class="footer-col">
+        <h3 class="footer-heading">About</h3>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+ 
+    </div>
+ 
+    <div class="footer-cheatsheet-band">
+      <div class="container footer-cheatsheet-inner">
+        <p class="footer-cheatsheet-label">Need a quick reference while you code?</p>
+        <a href="cheatsheet.html" class="footer-cheatsheet" id="footer-cheatsheet-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span>OOP Cheatsheet</span>
+          <svg class="footer-cheatsheet-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M13 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+ 
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 OOP Mastery. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/theme.js"></script>
+  <script src="../js/sidebar.js"></script>
+</body>
+</html>

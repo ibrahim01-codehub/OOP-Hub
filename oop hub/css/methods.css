@@ -1,0 +1,38 @@
+/* ==========================================================================
+   METHODS — page-specific visuals
+   Four back-to-back comparisons (private/public, class/struct,
+   constructor/destructor, friend/virtual), each its own subsection with
+   a distinct accent color so the reader can tell them apart at a glance.
+   ========================================================================== */
+.method-subsection {
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+}
+.method-subsection:first-of-type {
+  padding-top: 0;
+  border-top: none;
+}
+
+.method-kicker {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.method-subsection--access .method-kicker { color: var(--color-signal); }
+.method-subsection--struct .method-kicker { color: var(--color-violet); }
+.method-subsection--lifecycle .method-kicker { color: var(--color-teal); }
+.method-subsection--advanced .method-kicker { color: var(--color-amber); }
+
+.method-subsection--access .compare-card--a { border-top-color: var(--color-signal); }
+.method-subsection--access .compare-card--b { border-top-color: var(--color-signal-dark); }
+.method-subsection--struct .compare-card--a { border-top-color: var(--color-violet); }
+.method-subsection--struct .compare-card--b { border-top-color: var(--color-violet); }
+.method-subsection--lifecycle .compare-card--a { border-top-color: var(--color-teal); }
+.method-subsection--lifecycle .compare-card--b { border-top-color: var(--color-teal); }
+.method-subsection--advanced .compare-card--a { border-top-color: var(--color-amber); }
+.method-subsection--advanced .compare-card--b { border-top-color: var(--color-amber); }
