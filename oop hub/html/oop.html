@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <script>document.documentElement.classList.add('js');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OOP Mastery — Learn Object-Oriented Programming</title>
+  <meta name="description" content="A structured, example-driven guide to Object-Oriented Programming — clear theory, real examples, and hands-on practice for every core OOP concept.">
+
+  <!-- Fonts: Space Grotesk (display), IBM Plex Sans (body), IBM Plex Mono (code / labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/oop.css">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- ==========================================================================
+       HEADER — brand (left) · 5-item primary nav (center) · theme toggle (right)
+       ========================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner container">
+
+      <a href="index.html" class="brand" id="site-logo" aria-label="OOP Mastery — home">
+        <span class="logo-badge">
+          <span class="logo-mark" aria-hidden="true">{<i class="logo-dot"></i>}</span>
+        </span>
+        <span class="brand-name">OOP Mastery</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="../index.html" class="nav-link" aria-current="page">Home</a></li>
+          <li><a href="explore.html" class="nav-link">Topics</a></li>
+          <li><a href="practice.html" class="nav-link">Examples</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark theme" aria-pressed="false">
+          <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+  <main>
+
+    <!-- 1. OOP DEFINITION -->
+    <div class="oop-definition">
+      <div class="oop-definition-header"><span>Definition</span></div>
+      <div class="oop-definition-body">
+        <p>Object-Oriented Programming (OOP) is a programming paradigm that structures software around objects, 
+          which are instances of classes. Each object encapsulates data (attributes) and the methods (functions) that 
+          operate on that data. By organizing programs into self-contained, interacting objects, OOP improves code 
+          reusability, readability, maintainability, and scalability, making it one of the most widely adopted approaches 
+          for modern software development.</p>
+      </div>
+    </div>
+
+    <!-- 2. WHY WAS OOP CREATED? -->
+    <div class="oop-creation-reason">
+      <div class="creation-header"><span>Why was oop created?</span></div>
+      <div class="creation-body">
+        Early software was mostly written using Procedural Programming. <br>
+        As software became larger, developers encountered several problems:
+        <ul>
+          <li class="problem-item">Difficult to maintain</li>
+          <li class="problem-item">Code Duplication</li>
+          <li class="problem-item">Poorly Organized code</li>
+          <li class="problem-item">Hard Debugging</li>
+          <li class="problem-item">Difficult Network</li>
+          <li class="problem-item">Low useability</li>
+        </ul>
+        <p>Managing thousands of functions in a single project became increasingly complex. <br>
+        Object-Oriented Programming was introduced to solve these challenges by organizing software into independent, reusable objects.</p>
+      </div>
+    </div>
+
+    <!-- 3. WHAT EXACTLY IS OOP? -->
+    <div class="oop-what-is">
+      <div class="what-header"><span>What exactly is Object Object-Oriented-Programming</span></div>
+      <div class="what-body">
+        <p>Object-Oriented Programming (OOP) is a programming paradigm based on the concept of objects. 
+          <br>
+          An object combines:
+          <ul>
+            <li>Data (attributes)</li>
+            <li>Functions (methods)</li>
+          </ul>
+          <p>into a single unit
+            <br>
+            Instead of separating variables and functions throughout a program, OOP groups related information together.
+          </p>
+        </p>
+      </div>
+    </div>
+
+    <!-- 4. MAIN IDEA -->
+    <div class="oop-main-idea">
+      <div class="main-idea-header"><span>Main Idea</span></div>
+      <div class="main-idea-body">
+        <p><strong>Everything should be represented as an object whenever possible.</strong></p>
+        <p>Objects interact with one another by calling methods and exchanging information.</p>
+      </div>
+    </div>
+
+    <!-- 5. ADVANTAGES (grid-like block from original) -->
+    <div class="oop-advantages">
+      <div class="advantages-wrapper">
+        <div class="advantages-header"><span>Advantages</span></div>
+        <div class="advantages-list">
+          <ul>
+            <li>Better code organization</li>
+            <li>Easier Maintaince</li>
+            <li>Improved Readibility</li>
+            <li>Code Reuseability</li>
+            <li>Higher Security Through Encapsulation</li>
+            <li>Simplifies Debugging</li>
+            <li>Easier Collaboration among developers</li>
+            <li>Better scalabilty</li>
+            <li>Easier Testing</li>
+            <li>Modular Software Develpoment</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. DISADVANTAGES – new section (properly named) -->
+    <div class="oop-disadvantages">
+      <div class="disadvantages-header"><span>Disadvantages</span></div>
+      <div class="disadvantages-body">
+        <ul>
+          <li>Steeper learning curve – especially for beginners</li>
+          <li>Programs can become larger and slower (overhead)</li>
+          <li>Not suitable for all problems (e.g. small scripts)</li>
+          <li>Over-engineering – unnecessary abstraction</li>
+          <li>Increased complexity in design (UML, planning)</li>
+          <li>Harder to optimize performance in some cases</li>
+          <li>Memory consumption can be higher</li>
+          <li>More code to write compared to procedural</li>
+          <li>Can lead to deep inheritance hierarchies (difficult to maintain)</li>
+          <li>May require careful planning to avoid tight coupling</li>
+        </ul>
+        <p>Despite these drawbacks, OOP remains a powerful tool for large‑scale, collaborative, and long‑term projects.</p>
+      </div>
+    </div>
+
+    <!-- empty div from original (preserved) -->
+    <div class="extra-empty"></div>
+
+       <div class="hero-content"> <a href="classes.html" class="btn btn-primary">
+            Next page
+            <svg class="icon icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+
+  </main>
+
+ <footer class="site-footer" id="site-footer">
+    <div class="container footer-grid">
+ 
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="logo-badge">
+            <span class="logo-mark" aria-hidden="true">{<i class="logo-dot"></i>}</span>
+          </span>
+          <span class="brand-name">OOP Mastery</span>
+        </a>
+        <p class="footer-desc">A structured, example-driven guide to object-oriented programming — built to take you from your first class to your first real project.</p>
+      </div>
+ 
+      <div class="footer-col">
+        <h3 class="footer-heading">Quick links</h3>
+        <ul class="footer-links">
+          <li><a href="oop.html">OOP</a></li>
+          <li><a href="classes.html">Classes &amp; Objects</a></li>
+          <li><a href="encapsulation.html">Encapsulation</a></li>
+          <li><a href="inheritance.html" >Inheritance</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="polymoorphism.html">Polymorphism</a></li>
+          <li><a href="abstraction.html">Abstraction</a></li>
+        </ul>
+      </div>
+ 
+      <div class="footer-col">
+          <h3 class="footer-heading">Explore More</h3>
+        <ul class="footer-links">
+          <li><a href="playground.html">Playground c++</a></li>
+          <li><a href="practice.html">Practice Problems</a></li>
+        </ul>
+      </div>
+ 
+ 
+      <div class="footer-col">
+        <h3 class="footer-heading">About</h3>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+ 
+    </div>
+ 
+    <div class="footer-cheatsheet-band">
+      <div class="container footer-cheatsheet-inner">
+        <p class="footer-cheatsheet-label">Need a quick reference while you code?</p>
+        <a href="cheatsheet.html" class="footer-cheatsheet" id="footer-cheatsheet-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span>OOP Cheatsheet</span>
+          <svg class="footer-cheatsheet-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M13 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+ 
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 OOP Mastery. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/theme.js"></script>
+</body>
+</html>

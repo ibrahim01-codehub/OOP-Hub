@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <script>document.documentElement.classList.add('js');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OOP Mastery — Learn Object-Oriented Programming</title>
+  <meta name="description" content="A structured, example-driven guide to Object-Oriented Programming — clear theory, real examples, and hands-on practice for every core OOP concept.">
+
+  <!-- Fonts: Space Grotesk (display), IBM Plex Sans (body), IBM Plex Mono (code / labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+ <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/abstraction.css">
+  <link rel="stylesheet" href="../css/sidebar.css">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- ==========================================================================
+       HEADER — brand (left) · 5-item primary nav (center) · theme toggle (right)
+       ========================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner container">
+
+      <a href="index.html" class="brand" id="site-logo" aria-label="OOP Mastery — home">
+        <span class="logo-badge">
+          <span class="logo-mark" aria-hidden="true">{<i class="logo-dot"></i>}</span>
+        </span>
+        <span class="brand-name">OOP Mastery</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="../index.html" class="nav-link" aria-current="page">Home</a></li>
+          <li><a href="explore.html" class="nav-link">Topics</a></li>
+          <li><a href="practice.html" class="nav-link">Examples</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark theme" aria-pressed="false">
+          <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  
+<main>
+  <div class="docs-shell">
+ 
+    <div class="sidebar"></div>
+ 
+    <div class="content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span class="crumb-sep">/</span>
+        <a href="#">Topics</a><span class="crumb-sep">/</span>
+        <span aria-current="page">Abstraction</span>
+      </nav>
+ 
+      <span class="page-badge">OOP Concept</span>
+      <h1 class="page-title">Abstraction</h1>
+      <p class="page-intro">
+        Abstraction means exposing only the essential features of something
+        while hiding the complex details behind it. The user of a class gets a
+        simple interface to work with, without needing to know how that
+        interface is implemented underneath.
+      </p>
+ 
+      <div class="callout">
+        <span class="callout-icon">💡</span>
+        <p>Abstraction and encapsulation are often confused. Encapsulation hides
+          <em>data</em> behind access modifiers; abstraction hides
+          <em>complexity</em> behind a simple interface.</p>
+      </div>
+ 
+      <section class="box learn-box" aria-label="What you'll learn">
+        <h2 class="box-title">What You'll Learn Here</h2>
+        <ul class="check-list">
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>The difference between abstraction and encapsulation</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>How abstract classes and pure virtual functions define an interface</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Why you can't create an object directly from an abstract class</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>How different classes can implement the same abstract interface</li>
+        </ul>
+      </section>
+ 
+      <section class="content-section">
+        <h2>Why Abstraction?</h2>
+        <ul class="check-list">
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Reduces complexity for whoever is using the class</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Lets implementation details change without breaking callers</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Forces a consistent interface across different implementations</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Keeps the caller focused on <em>what</em> something does, not <em>how</em></li>
+        </ul>
+      </section>
+ 
+      <section class="content-section">
+        <h2>How It Works</h2>
+        <p>
+          In C++, abstraction is achieved with abstract classes: a class that
+          declares one or more <strong>pure virtual functions</strong> — methods
+          with no body, marked <code>= 0</code>. An abstract class can't be
+          instantiated directly; each derived class must supply its own
+          implementation of those methods.
+        </p>
+        <div class="abs-diagram">
+          <div class="abs-layer abs-layer--visible">
+            <span class="abs-layer-label">What the Caller Sees</span>
+            <p>shape.area();</p>
+          </div>
+          <div class="abs-divider">hides the details ↓</div>
+          <div class="abs-layer abs-layer--hidden">
+            <span class="abs-layer-label">What's Hidden</span>
+            <p>Circle: π × r × r &nbsp;·&nbsp; Rectangle: width × height</p>
+          </div>
+        </div>
+      </section>
+ 
+      <section class="content-section">
+        <h2>Syntax</h2>
+        <div class="code-panel">
+          <div class="code-panel-header">
+            <span class="code-panel-tag">syntax</span>
+            <span class="code-panel-filename">abstraction.cpp</span>
+          </div>
+          <div class="code-panel-body"><pre class="code-panel-code"><span class="kw">class</span> <span class="ty">AbstractClassName</span> {
+<span class="kw">public</span>:
+    <span class="kw">virtual</span> <span class="kw">void</span> <span class="fn">doSomething</span>() = 0;   <span class="cm">// pure virtual — no body</span>
+};
+ 
+<span class="kw">class</span> <span class="ty">Concrete</span> : <span class="kw">public</span> <span class="ty">AbstractClassName</span> {
+<span class="kw">public</span>:
+    <span class="kw">void</span> <span class="fn">doSomething</span>() <span class="kw">override</span> {
+        <span class="cm">// real implementation lives here</span>
+    }
+};</pre></div>
+        </div>
+      </section>
+ 
+      <section class="content-section">
+        <h2>Code Example (C++)</h2>
+        <div class="code-panel">
+          <div class="code-panel-header">
+            <span class="code-panel-tag">example</span>
+            <span class="code-panel-filename">shape.cpp</span>
+          </div>
+          <div class="code-panel-body"><pre class="code-panel-code"><span class="kw">#include</span> &lt;iostream&gt;
+<span class="kw">using namespace</span> std;
+ 
+<span class="kw">class</span> <span class="ty">Shape</span> {                       <span class="cm">// abstract class</span>
+<span class="kw">public</span>:
+    <span class="kw">virtual</span> <span class="ty">double</span> <span class="fn">area</span>() = 0;       <span class="cm">// pure virtual — defines the interface</span>
+};
+ 
+<span class="kw">class</span> <span class="ty">Circle</span> : <span class="kw">public</span> <span class="ty">Shape</span> {
+<span class="kw">private</span>:
+    <span class="ty">double</span> radius;
+<span class="kw">public</span>:
+    <span class="fn">Circle</span>(<span class="ty">double</span> r) : radius(r) {}
+    <span class="ty">double</span> <span class="fn">area</span>() <span class="kw">override</span> { <span class="kw">return</span> 3.14159 * radius * radius; }
+};
+ 
+<span class="ty">int</span> <span class="fn">main</span>() {
+    <span class="ty">Circle</span> c(4);
+    <span class="ty">Shape</span>&amp; s = c;                     <span class="cm">// interact through the abstract interface</span>
+    cout &lt;&lt; <span class="str">"Area: "</span> &lt;&lt; s.area() &lt;&lt; endl;
+    <span class="kw">return</span> 0;
+}</pre></div>
+        </div>
+        <div class="output-box">
+          <span class="output-label">Output</span>
+          <pre>Area: 50.2654</pre>
+        </div>
+      </section>
+ 
+      <section class="box pros-box" aria-label="Pros of abstraction">
+        <h2 class="box-title">Pros of Abstraction</h2>
+        <ul class="check-list">
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Simplifies how a class is used from the outside</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Internal implementation can change freely without breaking callers</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Encourages designing around a clear, stable interface</li>
+          <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Makes large systems easier to reason about in pieces</li>
+        </ul>
+      </section>
+ 
+      <section class="content-section">
+        <h2>Real-Life Analogy</h2>
+        <div class="analogy">
+          <span class="analogy-icon">🚗</span>
+          <p><strong>Think of driving a car.</strong> You use the steering wheel
+            and pedals — the interface — without knowing exactly how the engine,
+            fuel injection, or ignition timing work underneath. Those details are
+            abstracted away.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+ 
+  
+ <footer class="site-footer" id="site-footer">
+    <div class="container footer-grid">
+ 
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="logo-badge">
+            <span class="logo-mark" aria-hidden="true">{<i class="logo-dot"></i>}</span>
+          </span>
+          <span class="brand-name">OOP Mastery</span>
+        </a>
+        <p class="footer-desc">A structured, example-driven guide to object-oriented programming — built to take you from your first class to your first real project.</p>
+      </div>
+ 
+      <div class="footer-col">
+        <h3 class="footer-heading">Quick links</h3>
+        <ul class="footer-links">
+          <li><a href="oop.html">OOP</a></li>
+          <li><a href="classes.html">Classes &amp; Objects</a></li>
+          <li><a href="encapsulation.html">Encapsulation</a></li>
+          <li><a href="inheritance.html" >Inheritance</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="polymoorphism.html">Polymorphism</a></li>
+          <li><a href="abstraction.html">Abstraction</a></li>
+        </ul>
+      </div>
+ 
+      <div class="footer-col">
+          <h3 class="footer-heading">Explore More</h3>
+        <ul class="footer-links">
+          <li><a href="playground.html">Playground c++</a></li>
+          <li><a href="practice.html">Practice Problems</a></li>
+        </ul>
+      </div>
+ 
+ 
+      <div class="footer-col">
+        <h3 class="footer-heading">About</h3>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+ 
+    </div>
+ 
+    <div class="footer-cheatsheet-band">
+      <div class="container footer-cheatsheet-inner">
+        <p class="footer-cheatsheet-label">Need a quick reference while you code?</p>
+        <a href="cheatsheet.html" class="footer-cheatsheet" id="footer-cheatsheet-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span>OOP Cheatsheet</span>
+          <svg class="footer-cheatsheet-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M13 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+ 
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 OOP Mastery. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/theme.js"></script>
+  <script src="../js/sidebar.js"></script>
+</body>
+</html>
